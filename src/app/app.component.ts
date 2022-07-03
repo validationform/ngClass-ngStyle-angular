@@ -6,28 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Demo';
-  showMe = false;
-  showMe1 = false;
-  onToggle(){
-     this.showMe= !this.showMe; 
-     this.showMe=true;
-     this.showMe1=false;
-  }
-  onToggle1(){
-    this.showMe1= !this.showMe1;
-    this.showMe1=true;
-    this.showMe=false;
- }
   veg=[
-    {name:'potato',image:'./assets/patota.jpg'},
-    {name:'capsicum',image:'./assets/capsicum.jpg'},
-    {name:'onion',image:'./assets/onion.jpg'},
-    {name:'cucumber',image:'./assets/cucumber.jpg'}
+    {name:'Potato',image:'./assets/patota.jpg'},
+    {name:'Capsicum',image:'./assets/capsicum.jpg'},
+    {name:'Onion',image:'./assets/onion.jpg'},
+    {name:'Cucumber',image:'./assets/cucumber.jpg'}
   ];
   fruits=[
-    {name:'apple',image:'./assets/apple.jpg'},
-    {name:'watermelon',image:'./assets/watermelon.jpg'},
-    {name:'tomato',image:'./assets/tomato.jpg'}
+    {name:'Apple',image:'./assets/apple.jpg'},
+    {name:'Watermelon',image:'./assets/watermelon.jpg'},
+    {name:'Tomato',image:'./assets/tomato.jpg'}
   ];
+  title = 'List of Vegetables and Fruits';
+  showMe = true;
+  image = 'img1';
+  table = 'table';
+  index = 'index';
+  col = 'column';
+
+  onToggle(): void {
+     this.showMe = !this.showMe; 
+  } 
 }

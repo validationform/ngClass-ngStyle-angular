@@ -1,27 +1,44 @@
-<h1>{{title}}</h1>
-<input type="radio" name="demo" (click)="onToggle()">Vegetables 
-<input type="radio" name="demo" (click)="onToggle1()">Fruits
-<table border="1" id="t1" *ngIf="showMe">
-    <tr>
-        <th>INDEX</th>
+<div [ngStyle]="{'margin-left':'500px'}">
+<h1 [ngStyle]="{'color':'red'}">{{title}}</h1>
+
+<h2>
+    <input type="radio" 
+           name="radio" 
+           (click)="onToggle()" 
+           [checked]="showMe"> Vegetables 
+    <input type="radio" 
+           name="radio" 
+           (click)="onToggle()">Fruits </h2>
+
+<table border="1" *ngIf="showMe" [ngClass]="table">
+    <tr [ngClass]="col">
+        <th>Index</th>
         <th>Name</th>
-        <th>IMAGES</th>
+        <th>Images</th>
     </tr>
-<tr *ngFor="let v of veg;let i=index"> 
-<td>{{i+1}}</td>
-<td>{{v.name}}</td>
-<td><img src="{{v.image}}"></td>
-</tr>
+    <tr *ngFor="let v of veg;let j=index"> 
+        <td [ngClass]="index">{{j+1}}</td>    
+        <td [ngClass]="{potato:v.name == 'Potato',
+                        capsicum:v.name == 'Capsicum',
+                        onion:v.name == 'Onion',
+                        cucumber:v.name == 'Cucumber'}">{{v.name}}</td>
+        <td><img src="{{v.image}}" [ngClass]="image"></td>     
+    </tr>
 </table>
-<table border="1" id="t2" *ngIf="showMe1">
-    <tr>
-        <th>INDEX</th>
+
+<table border="1" *ngIf="!showMe">
+    <tr [ngClass]="col">
+        <th>Index</th>
         <th>Name</th>
-        <th>IMAGES</th>
+        <th>Images</th>
     </tr>
-<tr *ngFor="let v of fruits;let i=index"> 
-<td>{{i+1}}</td>
-<td>{{v.name}}</td>
-<td><img src="{{v.image}}"></td>
-</tr>
+    <tr *ngFor="let v of fruits;let i=index"> 
+        <td [ngClass]="index">{{i+1}}</td>
+        <td [ngClass]="{apple:v.name=='Apple',
+                        watermelon:v.name=='Watermelon',
+                        tomato:v.name=='Tomato'}">{{v.name}}</td>
+
+        <td><img src="{{v.image}}" [ngClass]="image"></td>
+    </tr> 
 </table>
+</div>
